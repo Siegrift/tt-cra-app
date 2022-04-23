@@ -13,6 +13,13 @@
    workaround](https://github.com/facebook/create-react-app/issues/10307#issuecomment-898889701) to create a
    [start](https://github.com/Siegrift/master-thesis/blob/master/code/tt-cra-app/scripts/start.js) and
    [build](https://github.com/Siegrift/master-thesis/blob/master/code/tt-cra-app/scripts/build.js) scripts to use instead.
+5. Trusted Types in Webpack do not propagate to webpack-dev-server which causes violations when there is an error in the
+   application source code (which also prevents the error to be shown). The workaround for now is to use a [custom build
+   of webpack-dev-server](https://github.com/Siegrift/webpack-dev-server) which uses Trusted Types policy internally.
+   You can clone that repository and enable this dependency via [yarn
+   resolutions](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/) or [npm
+   overrides](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides). _(See our
+   [package.json](https://github.com/Siegrift/master-thesis/blob/master/code/tt-cra-app/package.json) for details)_.
 
 _If you have troubles running this guide, try `rm -rf node_modules` and `yarn install`. If your problem persists let me
 know by opening an issue and I'll try to help you._
